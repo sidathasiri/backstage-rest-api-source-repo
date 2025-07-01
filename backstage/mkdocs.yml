@@ -75,3 +75,5 @@ markdown_extensions:
 #   - pymdownx.tabbed # If you use tabs
 nav:
   - Readme: index.md
+  - Sample: sample.md
+  
