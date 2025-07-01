@@ -17,6 +17,7 @@ spec:
   system: shared
   dependsOn:
     - resource:default/tenant-configuration-dynamodb-table
+    - resource:default/token-cache-dynamodb-table
   providesApis:
     - api:default/tenant-service-internal-api
   apiProvides: ['tenant-service-internal-api']
@@ -27,6 +28,17 @@ kind: Resource
 metadata:
   name: tenant-configuration-dynamodb-table
   description: DynamoDB table for tenant configurations
+spec:
+  type: database
+  owner: engineering
+  system: shared
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: token-cache-dynamodb-table
+  description: DynamoDB table for token cache
 spec:
   type: database
   owner: engineering
