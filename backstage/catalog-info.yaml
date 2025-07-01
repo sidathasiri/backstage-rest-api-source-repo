@@ -1,0 +1,17 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: tenant-service-internal
+  description: Internal Tenant Service
+  tags:
+    - typescript
+    - tenant-service
+    - apigateway
+    - service
+    - restful
+    - backend
+spec:
+  type: service
+  lifecycle: experimental
+  owner: engineering
+  system: shared
