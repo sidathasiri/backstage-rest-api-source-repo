@@ -1,7 +1,78 @@
-site_name: 'example-docs'
-
-nav:
-  - Home: index.md
-
+site_name: "Internal Tenant Service Documentation"
+edit_uri: ""
+site_url: ""
+repo_url: ""
+# use_directory_urls: false
+extra:
+   techdocs-cli serve generator:
+       name: techdocs
+       base_image: backstage/techdocs-container:latest
 plugins:
-  - techdocs-core
+   - techdocs-core
+  
+theme:
+  name: material # Enable the Material theme
+  features: # Enable specific theme features
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    # - navigation.sidebar
+    # - content.action.edit # Disables the edit button/link functionality
+    # - content.action.view # Disables the view source button/link functionality
+    # - navigation.sections
+    - content.code.annotate # For code annotations
+    # - content.tabs.link # Link content tabs together
+  palette:
+    # Palette toggle for light mode
+    - scheme: default # 'default' is the light mode
+      primary: teal # Choose a Material Design color name (e.g., blue, indigo, teal, green, pink, red, etc.)
+      accent: purple # Choose an accent color
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate # 'slate' is the dark mode
+      primary: teal # You can use the same or a different primary color for dark mode
+      accent: lime
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+markdown_extensions:
+  - tables
+  - admonition
+  - attr_list # Crucial for buttons, custom styling attributes
+  - pymdownx.details # Often used with admonition
+  - pymdownx.inlinehilite # Allow inline code highlighting
+  - pymdownx.highlight: # Configure code highlighting
+      anchor_linenums: true
+  - pymdownx.tabbed: # For Content Tabs
+      alternate_style: true
+  - pymdownx.emoji: # For Icons/Emojis
+      emoji_index: !!python/name:material.extensions.emoji.twemoji # Standard emojis
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg # Render as SVG
+  - pymdownx.keys # For keyboard keys
+  - pymdownx.mark # For ==highlighting==
+  - pymdownx.tilde # For ~~strikethrough~~
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+# markdown_extensions:
+#   - admonition
+#   - pymdownx.details # Often used with admonition
+#   - pymdownx.superfences
+#   - tables
+#   - toc:
+#       permalink: true # Example option
+# markdown_extensions:
+#   - pymdownx.superfences:
+#       custom_fences:
+#         - name: mermaid
+#           class: mermaid
+#           format: !!python/name:pymdownx.superfences.fence_code_format
+#   - pymdownx.inlinehilite
+#   - pymdownx.tabbed # If you use tabs
+nav:
+  - Readme: index.md
