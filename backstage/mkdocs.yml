@@ -75,4 +75,5 @@ markdown_extensions:
 #   - pymdownx.inlinehilite
 #   - pymdownx.tabbed # If you use tabs
 nav:
-  - Readme: index.md
+  - Overview: index.md
+  - Configurations: Configurations.md
