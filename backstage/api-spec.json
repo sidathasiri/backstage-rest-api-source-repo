@@ -1,0 +1,2203 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "tenant-service-internal-DEV",
+    "description" : "Tenant Internal API Gateway",
+    "version" : "2025-05-28T11:58:29Z"
+  },
+  "servers" : [ {
+    "url" : "https://tenant-service.dev.raintree.internal",
+    "x-amazon-apigateway-endpoint-configuration" : {
+      "vpcEndpointIds" : [ "vpce-05fdd35900786e290" ]
+    }
+  } ],
+  "paths" : {
+    "/tenant" : {
+      "get" : {
+        "parameters" : [ {
+          "name" : "tenant_id",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "appurl",
+          "in" : "query",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "404" : {
+            "description" : "404 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorResponseModel"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CreateTenant"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : [ ]
+        } ]
+      },
+      "post" : {
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CreateTenant"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "description" : "201 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : [ ]
+        } ]
+      },
+      "options" : {
+        "responses" : {
+          "204" : {
+            "description" : "204 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Max-Age" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : { }
+          }
+        }
+      },
+      "patch" : {
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/UpdateTenant"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "204" : {
+            "description" : "204 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : [ ]
+        } ]
+      }
+    },
+    "/tenant/shortid/{shortid}" : {
+      "get" : {
+        "parameters" : [ {
+          "name" : "shortid",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "404" : {
+            "description" : "404 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorResponseModel"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CreateTenant"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : [ ]
+        } ]
+      },
+      "options" : {
+        "parameters" : [ {
+          "name" : "shortid",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "204 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Max-Age" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : { }
+          }
+        }
+      }
+    },
+    "/tenants" : {
+      "get" : {
+        "responses" : {
+          "404" : {
+            "description" : "404 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorResponseModel"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/BulkCreateTenant"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : [ ]
+        } ]
+      },
+      "post" : {
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/BulkCreateTenant"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "description" : "201 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : [ ]
+        } ]
+      },
+      "options" : {
+        "responses" : {
+          "204" : {
+            "description" : "204 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Max-Age" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : { }
+          }
+        }
+      }
+    },
+    "/v2" : {
+      "options" : {
+        "responses" : {
+          "204" : {
+            "description" : "204 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Max-Age" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : { }
+          }
+        }
+      }
+    },
+    "/v2/customers/{customerId}/service" : {
+      "post" : {
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CreateServiceV2"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "description" : "201 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : [ ]
+        } ]
+      },
+      "options" : {
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "204 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Max-Age" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : { }
+          }
+        }
+      }
+    },
+    "/customers" : {
+      "post" : {
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/BulkCreateCustomer"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "description" : "201 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : [ ]
+        } ]
+      },
+      "options" : {
+        "responses" : {
+          "204" : {
+            "description" : "204 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Max-Age" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : { }
+          }
+        }
+      }
+    },
+    "/" : {
+      "options" : {
+        "responses" : {
+          "204" : {
+            "description" : "204 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Max-Age" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : { }
+          }
+        }
+      }
+    },
+    "/v2/customers/{customerId}/services" : {
+      "get" : {
+        "parameters" : [ {
+          "name" : "Cache-Extra-Key",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "customerId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "404" : {
+            "description" : "404 response",
+            "content" : { }
+          },
+          "401" : {
+            "description" : "401 response",
+            "content" : { }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : { }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : [ ]
+        } ]
+      },
+      "options" : {
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "204 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Max-Age" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : { }
+          }
+        }
+      }
+    },
+    "/v2/customer" : {
+      "post" : {
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CreateCustomerV2"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "description" : "201 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : [ ]
+        } ]
+      },
+      "options" : {
+        "responses" : {
+          "204" : {
+            "description" : "204 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Max-Age" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : { }
+          }
+        }
+      }
+    },
+    "/v2/customers" : {
+      "get" : {
+        "parameters" : [ {
+          "name" : "Cache-Extra-Key",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "401 response",
+            "content" : { }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : { }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : [ ]
+        } ]
+      },
+      "options" : {
+        "responses" : {
+          "204" : {
+            "description" : "204 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Max-Age" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : { }
+          }
+        }
+      }
+    },
+    "/tenant/shortid" : {
+      "options" : {
+        "responses" : {
+          "204" : {
+            "description" : "204 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Max-Age" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : { }
+          }
+        }
+      }
+    },
+    "/v2/customers/{customerId}/services/{serviceName}" : {
+      "get" : {
+        "parameters" : [ {
+          "name" : "Cache-Extra-Key",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "customerId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "serviceName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "404" : {
+            "description" : "404 response",
+            "content" : { }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : { }
+          },
+          "400" : {
+            "description" : "400 response",
+            "content" : { }
+          },
+          "401" : {
+            "description" : "401 response",
+            "content" : { }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : [ ]
+        } ]
+      },
+      "delete" : {
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "serviceName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "400 response",
+            "content" : { }
+          },
+          "404" : {
+            "description" : "404 response",
+            "content" : { }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : { }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : [ ]
+        } ]
+      },
+      "options" : {
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "serviceName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "204 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Max-Age" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : { }
+          }
+        }
+      },
+      "patch" : {
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "serviceName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/UpdateServiceV2"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "400" : {
+            "description" : "400 response",
+            "content" : { }
+          },
+          "404" : {
+            "description" : "404 response",
+            "content" : { }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : [ ]
+        } ]
+      }
+    },
+    "/v2/authenticate" : {
+      "post" : {
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AuthenticateV2"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "401" : {
+            "description" : "401 response",
+            "content" : { }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        }
+      },
+      "options" : {
+        "responses" : {
+          "204" : {
+            "description" : "204 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Max-Age" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : { }
+          }
+        }
+      }
+    },
+    "/customer" : {
+      "get" : {
+        "parameters" : [ {
+          "name" : "customer_id",
+          "in" : "query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "404" : {
+            "description" : "404 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ErrorResponseModel"
+                }
+              }
+            }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CreateCustomer"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : [ ]
+        } ]
+      },
+      "post" : {
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CreateCustomer"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "description" : "201 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : [ ]
+        } ]
+      },
+      "options" : {
+        "responses" : {
+          "204" : {
+            "description" : "204 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Max-Age" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : { }
+          }
+        }
+      },
+      "patch" : {
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/UpdateCustomer"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "204" : {
+            "description" : "204 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : [ ]
+        } ]
+      }
+    },
+    "/v2/customers/{customerId}" : {
+      "get" : {
+        "parameters" : [ {
+          "name" : "Cache-Extra-Key",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "customerId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "404" : {
+            "description" : "404 response",
+            "content" : { }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : [ ]
+        } ]
+      },
+      "delete" : {
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "400 response",
+            "content" : { }
+          },
+          "404" : {
+            "description" : "404 response",
+            "content" : { }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : { }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : [ ]
+        } ]
+      },
+      "options" : {
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "204" : {
+            "description" : "204 response",
+            "headers" : {
+              "Access-Control-Allow-Origin" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Methods" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Max-Age" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              },
+              "Access-Control-Allow-Headers" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "content" : { }
+          }
+        }
+      },
+      "patch" : {
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/UpdateCustomerV2"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "400" : {
+            "description" : "400 response",
+            "content" : { }
+          },
+          "404" : {
+            "description" : "404 response",
+            "content" : { }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : [ ]
+        } ]
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "UpdateCustomer" : {
+        "title" : "UpdateCustomerSchema",
+        "minProperties" : 1,
+        "type" : "object",
+        "properties" : {
+          "rtCredentials" : {
+            "title" : "RtCredentialsSchema",
+            "required" : [ "rtPassword", "rtUser" ],
+            "type" : "object",
+            "properties" : {
+              "rtPassword" : {
+                "type" : "string"
+              },
+              "rtUser" : {
+                "type" : "string"
+              }
+            },
+            "additionalProperties" : false
+          },
+          "shortId" : {
+            "type" : "string"
+          },
+          "dbVersion" : {
+            "type" : "string"
+          },
+          "rtHost" : {
+            "type" : "string"
+          },
+          "rtDat" : {
+            "type" : "string"
+          },
+          "appUrl" : {
+            "type" : "string"
+          },
+          "dbCredentials" : {
+            "title" : "DbCredentialsSchema",
+            "required" : [ "dbHost", "dbName", "dbPassword", "dbPort", "dbUser" ],
+            "type" : "object",
+            "properties" : {
+              "dbPort" : {
+                "type" : "string"
+              },
+              "dbName" : {
+                "type" : "string"
+              },
+              "dbUser" : {
+                "type" : "string"
+              },
+              "dbHost" : {
+                "type" : "string"
+              },
+              "dbPassword" : {
+                "type" : "string"
+              }
+            },
+            "additionalProperties" : false
+          },
+          "env" : {
+            "type" : "string"
+          },
+          "customerName" : {
+            "type" : "string"
+          },
+          "idCustomerHash" : {
+            "type" : "string"
+          },
+          "rtPort" : {
+            "type" : "string"
+          },
+          "apiUrl" : {
+            "type" : "string"
+          },
+          "officeId" : {
+            "type" : "string"
+          },
+          "rtHomeDir" : {
+            "type" : "string"
+          },
+          "apiCredentials" : {
+            "title" : "ApiCredentialsSchema",
+            "required" : [ "clientId", "clientSecret" ],
+            "type" : "object",
+            "properties" : {
+              "clientId" : {
+                "type" : "string"
+              },
+              "clientSecret" : {
+                "type" : "string"
+              }
+            },
+            "additionalProperties" : false
+          },
+          "idpOrgId" : {
+            "type" : "string"
+          },
+          "apiId" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "boolean"
+          }
+        },
+        "additionalProperties" : false
+      },
+      "CreateCustomerV2" : {
+        "title" : "CreateCustomerSchemaV2",
+        "required" : [ "customerId", "name", "status" ],
+        "type" : "object",
+        "properties" : {
+          "subDomainIdentifier" : {
+            "type" : "string"
+          },
+          "customerId" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ACTIVE", "DISABLED" ]
+          }
+        },
+        "additionalProperties" : true
+      },
+      "UpdateCustomerV2" : {
+        "title" : "UpdateCustomerSchemaV2",
+        "minProperties" : 1,
+        "type" : "object",
+        "properties" : {
+          "subDomainIdentifier" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ACTIVE", "DISABLED" ]
+          }
+        },
+        "additionalProperties" : true
+      },
+      "ErrorResponseModel" : {
+        "title" : "errorResponse",
+        "type" : "object",
+        "properties" : {
+          "state" : {
+            "type" : "string"
+          },
+          "message" : {
+            "type" : "string"
+          }
+        }
+      },
+      "UpdateTenant" : {
+        "title" : "UpdateTenantSchema",
+        "minProperties" : 1,
+        "required" : [ "id" ],
+        "type" : "object",
+        "properties" : {
+          "rtCredentials" : {
+            "title" : "RtCredentialsSchema",
+            "required" : [ "rtPassword", "rtUser" ],
+            "type" : "object",
+            "properties" : {
+              "rtPassword" : {
+                "type" : "string"
+              },
+              "rtUser" : {
+                "type" : "string"
+              }
+            },
+            "additionalProperties" : false
+          },
+          "shortId" : {
+            "type" : "string"
+          },
+          "dbVersion" : {
+            "type" : "string"
+          },
+          "rtHost" : {
+            "type" : "string"
+          },
+          "rtDat" : {
+            "type" : "string"
+          },
+          "appUrl" : {
+            "type" : "string"
+          },
+          "dbCredentials" : {
+            "title" : "DbCredentialsSchema",
+            "required" : [ "dbHost", "dbName", "dbPassword", "dbPort", "dbUser" ],
+            "type" : "object",
+            "properties" : {
+              "dbPort" : {
+                "type" : "string"
+              },
+              "dbName" : {
+                "type" : "string"
+              },
+              "dbUser" : {
+                "type" : "string"
+              },
+              "dbHost" : {
+                "type" : "string"
+              },
+              "dbPassword" : {
+                "type" : "string"
+              }
+            },
+            "additionalProperties" : false
+          },
+          "env" : {
+            "type" : "string"
+          },
+          "rtPort" : {
+            "type" : "string"
+          },
+          "tenantName" : {
+            "type" : "string"
+          },
+          "apiUrl" : {
+            "type" : "string"
+          },
+          "rtHomeDir" : {
+            "type" : "string"
+          },
+          "apiCredentials" : {
+            "title" : "ApiCredentialsSchema",
+            "required" : [ "clientId", "clientSecret" ],
+            "type" : "object",
+            "properties" : {
+              "clientId" : {
+                "type" : "string"
+              },
+              "clientSecret" : {
+                "type" : "string"
+              }
+            },
+            "additionalProperties" : false
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "apiId" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "boolean"
+          }
+        },
+        "additionalProperties" : false
+      },
+      "BulkCreateCustomer" : {
+        "type" : "array",
+        "items" : {
+          "title" : "CreateCustomerSchema",
+          "required" : [ "apiCredentials", "apiId", "apiUrl", "appUrl", "customerName", "dbCredentials", "id", "rtCredentials", "shortId", "status" ],
+          "type" : "object",
+          "properties" : {
+            "rtCredentials" : {
+              "title" : "RtCredentialsSchema",
+              "required" : [ "rtPassword", "rtUser" ],
+              "type" : "object",
+              "properties" : {
+                "rtPassword" : {
+                  "type" : "string"
+                },
+                "rtUser" : {
+                  "type" : "string"
+                }
+              },
+              "additionalProperties" : false
+            },
+            "shortId" : {
+              "type" : "string"
+            },
+            "tenants" : {
+              "type" : "array",
+              "items" : {
+                "title" : "CreateTenantSchema",
+                "required" : [ "apiCredentials", "apiId", "apiUrl", "appUrl", "dbCredentials", "id", "rtCredentials", "shortId", "status", "tenantName" ],
+                "type" : "object",
+                "properties" : {
+                  "rtCredentials" : {
+                    "title" : "RtCredentialsSchema",
+                    "required" : [ "rtPassword", "rtUser" ],
+                    "type" : "object",
+                    "properties" : {
+                      "rtPassword" : {
+                        "type" : "string"
+                      },
+                      "rtUser" : {
+                        "type" : "string"
+                      }
+                    },
+                    "additionalProperties" : false
+                  },
+                  "shortId" : {
+                    "type" : "string"
+                  },
+                  "dbVersion" : {
+                    "type" : "string"
+                  },
+                  "rtHost" : {
+                    "type" : "string"
+                  },
+                  "rtDat" : {
+                    "type" : "string"
+                  },
+                  "appUrl" : {
+                    "type" : "string"
+                  },
+                  "dbCredentials" : {
+                    "title" : "DbCredentialsSchema",
+                    "required" : [ "dbHost", "dbName", "dbPassword", "dbPort", "dbUser" ],
+                    "type" : "object",
+                    "properties" : {
+                      "dbPort" : {
+                        "type" : "string"
+                      },
+                      "dbName" : {
+                        "type" : "string"
+                      },
+                      "dbUser" : {
+                        "type" : "string"
+                      },
+                      "dbHost" : {
+                        "type" : "string"
+                      },
+                      "dbPassword" : {
+                        "type" : "string"
+                      }
+                    },
+                    "additionalProperties" : false
+                  },
+                  "env" : {
+                    "type" : "string"
+                  },
+                  "rtPort" : {
+                    "type" : "string"
+                  },
+                  "tenantName" : {
+                    "type" : "string"
+                  },
+                  "apiUrl" : {
+                    "type" : "string"
+                  },
+                  "rtHomeDir" : {
+                    "type" : "string"
+                  },
+                  "apiCredentials" : {
+                    "title" : "ApiCredentialsSchema",
+                    "required" : [ "clientId", "clientSecret" ],
+                    "type" : "object",
+                    "properties" : {
+                      "clientId" : {
+                        "type" : "string"
+                      },
+                      "clientSecret" : {
+                        "type" : "string"
+                      }
+                    },
+                    "additionalProperties" : false
+                  },
+                  "id" : {
+                    "type" : "string"
+                  },
+                  "apiId" : {
+                    "type" : "string"
+                  },
+                  "status" : {
+                    "type" : "boolean"
+                  }
+                },
+                "additionalProperties" : false
+              }
+            },
+            "dbVersion" : {
+              "type" : "string"
+            },
+            "rtHost" : {
+              "type" : "string"
+            },
+            "rtDat" : {
+              "type" : "string"
+            },
+            "appUrl" : {
+              "type" : "string"
+            },
+            "dbCredentials" : {
+              "title" : "DbCredentialsSchema",
+              "required" : [ "dbHost", "dbName", "dbPassword", "dbPort", "dbUser" ],
+              "type" : "object",
+              "properties" : {
+                "dbPort" : {
+                  "type" : "string"
+                },
+                "dbName" : {
+                  "type" : "string"
+                },
+                "dbUser" : {
+                  "type" : "string"
+                },
+                "dbHost" : {
+                  "type" : "string"
+                },
+                "dbPassword" : {
+                  "type" : "string"
+                }
+              },
+              "additionalProperties" : false
+            },
+            "env" : {
+              "type" : "string"
+            },
+            "customerName" : {
+              "type" : "string"
+            },
+            "idCustomerHash" : {
+              "type" : "string"
+            },
+            "rtPort" : {
+              "type" : "string"
+            },
+            "apiUrl" : {
+              "type" : "string"
+            },
+            "officeId" : {
+              "type" : "string"
+            },
+            "rtHomeDir" : {
+              "type" : "string"
+            },
+            "apiCredentials" : {
+              "title" : "ApiCredentialsSchema",
+              "required" : [ "clientId", "clientSecret" ],
+              "type" : "object",
+              "properties" : {
+                "clientId" : {
+                  "type" : "string"
+                },
+                "clientSecret" : {
+                  "type" : "string"
+                }
+              },
+              "additionalProperties" : false
+            },
+            "id" : {
+              "type" : "string"
+            },
+            "idpOrgId" : {
+              "type" : "string"
+            },
+            "apiId" : {
+              "type" : "string"
+            },
+            "status" : {
+              "type" : "boolean"
+            }
+          },
+          "additionalProperties" : false
+        }
+      },
+      "Empty" : {
+        "title" : "Empty Schema",
+        "type" : "object"
+      },
+      "UpdateServiceV2" : {
+        "title" : "UpdateServiceSchemaV2",
+        "minProperties" : 1,
+        "type" : "object",
+        "properties" : {
+          "isSecret" : {
+            "type" : "boolean"
+          },
+          "serviceName" : {
+            "type" : "string"
+          },
+          "value" : {
+            "oneOf" : [ {
+              "type" : "string"
+            }, {
+              "type" : "object"
+            }, {
+              "type" : "boolean"
+            }, {
+              "type" : "number"
+            }, {
+              "type" : "array"
+            } ]
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ACTIVE", "DISABLED" ]
+          }
+        },
+        "additionalProperties" : true
+      },
+      "CreateTenant" : {
+        "title" : "CreateTenantSchema",
+        "required" : [ "apiCredentials", "apiId", "apiUrl", "appUrl", "dbCredentials", "id", "rtCredentials", "shortId", "status", "tenantName" ],
+        "type" : "object",
+        "properties" : {
+          "rtCredentials" : {
+            "title" : "RtCredentialsSchema",
+            "required" : [ "rtPassword", "rtUser" ],
+            "type" : "object",
+            "properties" : {
+              "rtPassword" : {
+                "type" : "string"
+              },
+              "rtUser" : {
+                "type" : "string"
+              }
+            },
+            "additionalProperties" : false
+          },
+          "shortId" : {
+            "type" : "string"
+          },
+          "dbVersion" : {
+            "type" : "string"
+          },
+          "rtHost" : {
+            "type" : "string"
+          },
+          "rtDat" : {
+            "type" : "string"
+          },
+          "appUrl" : {
+            "type" : "string"
+          },
+          "dbCredentials" : {
+            "title" : "DbCredentialsSchema",
+            "required" : [ "dbHost", "dbName", "dbPassword", "dbPort", "dbUser" ],
+            "type" : "object",
+            "properties" : {
+              "dbPort" : {
+                "type" : "string"
+              },
+              "dbName" : {
+                "type" : "string"
+              },
+              "dbUser" : {
+                "type" : "string"
+              },
+              "dbHost" : {
+                "type" : "string"
+              },
+              "dbPassword" : {
+                "type" : "string"
+              }
+            },
+            "additionalProperties" : false
+          },
+          "env" : {
+            "type" : "string"
+          },
+          "rtPort" : {
+            "type" : "string"
+          },
+          "tenantName" : {
+            "type" : "string"
+          },
+          "apiUrl" : {
+            "type" : "string"
+          },
+          "rtHomeDir" : {
+            "type" : "string"
+          },
+          "apiCredentials" : {
+            "title" : "ApiCredentialsSchema",
+            "required" : [ "clientId", "clientSecret" ],
+            "type" : "object",
+            "properties" : {
+              "clientId" : {
+                "type" : "string"
+              },
+              "clientSecret" : {
+                "type" : "string"
+              }
+            },
+            "additionalProperties" : false
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "apiId" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "boolean"
+          }
+        },
+        "additionalProperties" : false
+      },
+      "BulkCreateTenant" : {
+        "type" : "array",
+        "items" : {
+          "title" : "CreateTenantSchema",
+          "required" : [ "apiCredentials", "apiId", "apiUrl", "appUrl", "dbCredentials", "id", "rtCredentials", "shortId", "status", "tenantName" ],
+          "type" : "object",
+          "properties" : {
+            "rtCredentials" : {
+              "title" : "RtCredentialsSchema",
+              "required" : [ "rtPassword", "rtUser" ],
+              "type" : "object",
+              "properties" : {
+                "rtPassword" : {
+                  "type" : "string"
+                },
+                "rtUser" : {
+                  "type" : "string"
+                }
+              },
+              "additionalProperties" : false
+            },
+            "shortId" : {
+              "type" : "string"
+            },
+            "dbVersion" : {
+              "type" : "string"
+            },
+            "rtHost" : {
+              "type" : "string"
+            },
+            "rtDat" : {
+              "type" : "string"
+            },
+            "appUrl" : {
+              "type" : "string"
+            },
+            "dbCredentials" : {
+              "title" : "DbCredentialsSchema",
+              "required" : [ "dbHost", "dbName", "dbPassword", "dbPort", "dbUser" ],
+              "type" : "object",
+              "properties" : {
+                "dbPort" : {
+                  "type" : "string"
+                },
+                "dbName" : {
+                  "type" : "string"
+                },
+                "dbUser" : {
+                  "type" : "string"
+                },
+                "dbHost" : {
+                  "type" : "string"
+                },
+                "dbPassword" : {
+                  "type" : "string"
+                }
+              },
+              "additionalProperties" : false
+            },
+            "env" : {
+              "type" : "string"
+            },
+            "rtPort" : {
+              "type" : "string"
+            },
+            "tenantName" : {
+              "type" : "string"
+            },
+            "apiUrl" : {
+              "type" : "string"
+            },
+            "rtHomeDir" : {
+              "type" : "string"
+            },
+            "apiCredentials" : {
+              "title" : "ApiCredentialsSchema",
+              "required" : [ "clientId", "clientSecret" ],
+              "type" : "object",
+              "properties" : {
+                "clientId" : {
+                  "type" : "string"
+                },
+                "clientSecret" : {
+                  "type" : "string"
+                }
+              },
+              "additionalProperties" : false
+            },
+            "id" : {
+              "type" : "string"
+            },
+            "apiId" : {
+              "type" : "string"
+            },
+            "status" : {
+              "type" : "boolean"
+            }
+          },
+          "additionalProperties" : false
+        }
+      },
+      "CreateServiceV2" : {
+        "title" : "CreateServiceSchemaV2",
+        "required" : [ "isSecret", "serviceName", "status", "value" ],
+        "type" : "object",
+        "properties" : {
+          "isSecret" : {
+            "type" : "boolean"
+          },
+          "serviceName" : {
+            "type" : "string"
+          },
+          "value" : {
+            "oneOf" : [ {
+              "type" : "string"
+            }, {
+              "type" : "object"
+            }, {
+              "type" : "boolean"
+            }, {
+              "type" : "number"
+            }, {
+              "type" : "array"
+            } ]
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ACTIVE", "DISABLED" ]
+          }
+        },
+        "additionalProperties" : true
+      },
+      "AuthenticateV2" : {
+        "title" : "AuthenticateSchemaV2",
+        "required" : [ "clientId", "clientSecret", "scopes" ],
+        "type" : "object",
+        "properties" : {
+          "clientId" : {
+            "type" : "string"
+          },
+          "clientSecret" : {
+            "type" : "string"
+          },
+          "scopes" : {
+            "type" : "string"
+          }
+        },
+        "additionalProperties" : false
+      },
+      "CreateCustomer" : {
+        "title" : "CreateCustomerSchema",
+        "required" : [ "apiCredentials", "apiId", "apiUrl", "appUrl", "customerName", "dbCredentials", "id", "rtCredentials", "shortId", "status" ],
+        "type" : "object",
+        "properties" : {
+          "rtCredentials" : {
+            "title" : "RtCredentialsSchema",
+            "required" : [ "rtPassword", "rtUser" ],
+            "type" : "object",
+            "properties" : {
+              "rtPassword" : {
+                "type" : "string"
+              },
+              "rtUser" : {
+                "type" : "string"
+              }
+            },
+            "additionalProperties" : false
+          },
+          "shortId" : {
+            "type" : "string"
+          },
+          "tenants" : {
+            "type" : "array",
+            "items" : {
+              "title" : "CreateTenantSchema",
+              "required" : [ "apiCredentials", "apiId", "apiUrl", "appUrl", "dbCredentials", "id", "rtCredentials", "shortId", "status", "tenantName" ],
+              "type" : "object",
+              "properties" : {
+                "rtCredentials" : {
+                  "title" : "RtCredentialsSchema",
+                  "required" : [ "rtPassword", "rtUser" ],
+                  "type" : "object",
+                  "properties" : {
+                    "rtPassword" : {
+                      "type" : "string"
+                    },
+                    "rtUser" : {
+                      "type" : "string"
+                    }
+                  },
+                  "additionalProperties" : false
+                },
+                "shortId" : {
+                  "type" : "string"
+                },
+                "dbVersion" : {
+                  "type" : "string"
+                },
+                "rtHost" : {
+                  "type" : "string"
+                },
+                "rtDat" : {
+                  "type" : "string"
+                },
+                "appUrl" : {
+                  "type" : "string"
+                },
+                "dbCredentials" : {
+                  "title" : "DbCredentialsSchema",
+                  "required" : [ "dbHost", "dbName", "dbPassword", "dbPort", "dbUser" ],
+                  "type" : "object",
+                  "properties" : {
+                    "dbPort" : {
+                      "type" : "string"
+                    },
+                    "dbName" : {
+                      "type" : "string"
+                    },
+                    "dbUser" : {
+                      "type" : "string"
+                    },
+                    "dbHost" : {
+                      "type" : "string"
+                    },
+                    "dbPassword" : {
+                      "type" : "string"
+                    }
+                  },
+                  "additionalProperties" : false
+                },
+                "env" : {
+                  "type" : "string"
+                },
+                "rtPort" : {
+                  "type" : "string"
+                },
+                "tenantName" : {
+                  "type" : "string"
+                },
+                "apiUrl" : {
+                  "type" : "string"
+                },
+                "rtHomeDir" : {
+                  "type" : "string"
+                },
+                "apiCredentials" : {
+                  "title" : "ApiCredentialsSchema",
+                  "required" : [ "clientId", "clientSecret" ],
+                  "type" : "object",
+                  "properties" : {
+                    "clientId" : {
+                      "type" : "string"
+                    },
+                    "clientSecret" : {
+                      "type" : "string"
+                    }
+                  },
+                  "additionalProperties" : false
+                },
+                "id" : {
+                  "type" : "string"
+                },
+                "apiId" : {
+                  "type" : "string"
+                },
+                "status" : {
+                  "type" : "boolean"
+                }
+              },
+              "additionalProperties" : false
+            }
+          },
+          "dbVersion" : {
+            "type" : "string"
+          },
+          "rtHost" : {
+            "type" : "string"
+          },
+          "rtDat" : {
+            "type" : "string"
+          },
+          "appUrl" : {
+            "type" : "string"
+          },
+          "dbCredentials" : {
+            "title" : "DbCredentialsSchema",
+            "required" : [ "dbHost", "dbName", "dbPassword", "dbPort", "dbUser" ],
+            "type" : "object",
+            "properties" : {
+              "dbPort" : {
+                "type" : "string"
+              },
+              "dbName" : {
+                "type" : "string"
+              },
+              "dbUser" : {
+                "type" : "string"
+              },
+              "dbHost" : {
+                "type" : "string"
+              },
+              "dbPassword" : {
+                "type" : "string"
+              }
+            },
+            "additionalProperties" : false
+          },
+          "env" : {
+            "type" : "string"
+          },
+          "customerName" : {
+            "type" : "string"
+          },
+          "idCustomerHash" : {
+            "type" : "string"
+          },
+          "rtPort" : {
+            "type" : "string"
+          },
+          "apiUrl" : {
+            "type" : "string"
+          },
+          "officeId" : {
+            "type" : "string"
+          },
+          "rtHomeDir" : {
+            "type" : "string"
+          },
+          "apiCredentials" : {
+            "title" : "ApiCredentialsSchema",
+            "required" : [ "clientId", "clientSecret" ],
+            "type" : "object",
+            "properties" : {
+              "clientId" : {
+                "type" : "string"
+              },
+              "clientSecret" : {
+                "type" : "string"
+              }
+            },
+            "additionalProperties" : false
+          },
+          "id" : {
+            "type" : "string"
+          },
+          "idpOrgId" : {
+            "type" : "string"
+          },
+          "apiId" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "boolean"
+          }
+        },
+        "additionalProperties" : false
+      }
+    },
+    "securitySchemes" : {
+      "TENANTSERVICEINTERNALDEVtenantserviceinternalapirequestAuthorizer8B84D468" : {
+        "type" : "apiKey",
+        "name" : "Authorization",
+        "in" : "header",
+        "x-amazon-apigateway-authtype" : "custom"
+      }
+    }
+  },
+  "x-amazon-apigateway-policy" : {
+    "Version" : "2012-10-17",
+    "Statement" : [ {
+      "Effect" : "Allow",
+      "Principal" : {
+        "AWS" : "*"
+      },
+      "Action" : "execute-api:Invoke",
+      "Resource" : "arn:aws:execute-api:us-east-1:106367354196:4xvhq6a3y8/*/*/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:SourceVpce" : "vpce-05fdd35900786e290"
+        }
+      }
+    } ]
+  }
+}

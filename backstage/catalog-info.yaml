@@ -15,3 +15,15 @@ spec:
   lifecycle: experimental
   owner: engineering
   system: shared
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: tenant-service-internal-api
+  description: Tenant Service Internal API
+spec:
+  type: openapi
+  lifecycle: production
+  owner: architecture@example.com
+  definition:
+    $text: ./api-spec.json
