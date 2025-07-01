@@ -8,8 +8,7 @@ extra:
        name: techdocs
        base_image: backstage/techdocs-container:latest
 plugins:
-   - techdocs-core
-   - mermaid2       
+   - techdocs-core  
 theme:
   name: material # Enable the Material theme
   features: # Enable specific theme features
