@@ -20,6 +20,17 @@ spec:
   providesApis:
     - api:default/tenant-service-internal-api
   apiProvides: ['tenant-service-internal-api']
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: tenant-configuration-dynamodb-table
+  description: DynamoDB table for tenant configurations
+spec:
+  type: database
+  owner: engineering
+  system: shared
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
