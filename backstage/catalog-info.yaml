@@ -15,6 +15,7 @@ spec:
   lifecycle: experimental
   owner: engineering
   system: shared
+  dependsOn: ['resource:tenant-configuration-dynamodb-table']
   providesApis:
     - api:default/tenant-service-internal-api
   apiProvides: ['tenant-service-internal-api']
