@@ -77,3 +77,4 @@ markdown_extensions:
 nav:
   - Overview: index.md
   - Configurations: Configurations.md
+  - Environments: Environments.md
