@@ -12,6 +12,7 @@ metadata:
     - backend
   annotations:
     backstage.io/techdocs-ref: dir:.
+    backstage.io/code-coverage: enabled
 spec:
   type: service
   lifecycle: experimental
