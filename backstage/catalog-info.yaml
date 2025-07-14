@@ -13,6 +13,7 @@ metadata:
   annotations:
     backstage.io/techdocs-ref: dir:.
     backstage.io/code-coverage: enabled
+    backstage.io/adr-location: docs/adr
 spec:
   type: service
   lifecycle: experimental
