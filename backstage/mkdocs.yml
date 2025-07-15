@@ -9,7 +9,7 @@ extra:
        base_image: backstage/techdocs-container:latest
 plugins:
    - techdocs-core
-  
+   - mermaid2       
 theme:
   name: material # Enable the Material theme
   features: # Enable specific theme features
@@ -37,8 +37,11 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-
+extra_css:
+  - stylesheets/custom.css
 markdown_extensions:
+  - md_in_html
+  - extra
   - tables
   - admonition
   - attr_list # Crucial for buttons, custom styling attributes
@@ -59,21 +62,6 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-# markdown_extensions:
-#   - admonition
-#   - pymdownx.details # Often used with admonition
-#   - pymdownx.superfences
-#   - tables
-#   - toc:
-#       permalink: true # Example option
-# markdown_extensions:
-#   - pymdownx.superfences:
-#       custom_fences:
-#         - name: mermaid
-#           class: mermaid
-#           format: !!python/name:pymdownx.superfences.fence_code_format
-#   - pymdownx.inlinehilite
-#   - pymdownx.tabbed # If you use tabs
 nav:
   - Overview: index.md
   - Configurations: Configurations.md
