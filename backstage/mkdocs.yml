@@ -9,7 +9,6 @@ extra:
        base_image: backstage/techdocs-container:latest
 plugins:
    - techdocs-core
-   - mermaid2       
 theme:
   name: material # Enable the Material theme
   features: # Enable specific theme features
@@ -57,11 +56,7 @@ markdown_extensions:
   - pymdownx.keys # For keyboard keys
   - pymdownx.mark # For ==highlighting==
   - pymdownx.tilde # For ~~strikethrough~~
-  - pymdownx.superfences:
-      custom_fences:
-        - name: mermaid
-          class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+  
 nav:
   - Overview: index.md
   - Configurations: Configurations.md
