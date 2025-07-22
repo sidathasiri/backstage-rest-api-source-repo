@@ -1,0 +1,569 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "tenant-service-internal-UAT",
+    "description" : "Tenant Internal API Gateway",
+    "version" : "2025-07-17T23:55:04Z"
+  },
+  "servers" : [ {
+    "url" : "https://tenant-service.uat.raintree.internal",
+    "x-amazon-apigateway-endpoint-configuration" : {
+      "vpcEndpointIds" : [ "vpce-0e955e7037803ef4b" ]
+    }
+  } ],
+  "paths" : {
+    "/v2/customers/{customerId}/services" : {
+      "get" : {
+        "operationId" : "GetServices",
+        "parameters" : [ {
+          "name" : "Cache-Extra-Key",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "customerId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "404" : {
+            "description" : "404 response",
+            "content" : { }
+          },
+          "401" : {
+            "description" : "401 response",
+            "content" : { }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : { }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALUATtenantserviceinternalapirequestAuthorizer518AA000" : [ ]
+        } ]
+      }
+    },
+    "/v2/customer" : {
+      "post" : {
+        "operationId" : "CreateCustomer",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CreateCustomerV2"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "description" : "201 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALUATtenantserviceinternalapirequestAuthorizer518AA000" : [ ]
+        } ]
+      }
+    },
+    "/v2/customers" : {
+      "get" : {
+        "operationId" : "GetCustomers",
+        "parameters" : [ {
+          "name" : "Cache-Extra-Key",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "401" : {
+            "description" : "401 response",
+            "content" : { }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : { }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALUATtenantserviceinternalapirequestAuthorizer518AA000" : [ ]
+        } ]
+      }
+    },
+    "/v2/customers/{customerId}/services/{serviceName}" : {
+      "get" : {
+        "operationId" : "GetService",
+        "parameters" : [ {
+          "name" : "Cache-Extra-Key",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "customerId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "serviceName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "404" : {
+            "description" : "404 response",
+            "content" : { }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : { }
+          },
+          "400" : {
+            "description" : "400 response",
+            "content" : { }
+          },
+          "401" : {
+            "description" : "401 response",
+            "content" : { }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALUATtenantserviceinternalapirequestAuthorizer518AA000" : [ ]
+        } ]
+      },
+      "delete" : {
+        "operationId" : "DeleteService",
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "serviceName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "400 response",
+            "content" : { }
+          },
+          "404" : {
+            "description" : "404 response",
+            "content" : { }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : { }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALUATtenantserviceinternalapirequestAuthorizer518AA000" : [ ]
+        } ]
+      },
+      "patch" : {
+        "operationId" : "UpdateService",
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "serviceName",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/UpdateServiceV2"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "400" : {
+            "description" : "400 response",
+            "content" : { }
+          },
+          "404" : {
+            "description" : "404 response",
+            "content" : { }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALUATtenantserviceinternalapirequestAuthorizer518AA000" : [ ]
+        } ]
+      }
+    },
+    "/v2/authenticate" : {
+      "post" : {
+        "operationId" : "AuthenticateClient",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/AuthenticateV2"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "401" : {
+            "description" : "401 response",
+            "content" : { }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/customers/{customerId}/service" : {
+      "post" : {
+        "operationId" : "CreateService",
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/CreateServiceV2"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "201" : {
+            "description" : "201 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALUATtenantserviceinternalapirequestAuthorizer518AA000" : [ ]
+        } ]
+      }
+    },
+    "/v2/customers/{customerId}" : {
+      "get" : {
+        "operationId" : "GetCustomer",
+        "parameters" : [ {
+          "name" : "Cache-Extra-Key",
+          "in" : "header",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "customerId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "404" : {
+            "description" : "404 response",
+            "content" : { }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALUATtenantserviceinternalapirequestAuthorizer518AA000" : [ ]
+        } ]
+      },
+      "delete" : {
+        "operationId" : "DeleteCustomer",
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "400" : {
+            "description" : "400 response",
+            "content" : { }
+          },
+          "404" : {
+            "description" : "404 response",
+            "content" : { }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : { }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALUATtenantserviceinternalapirequestAuthorizer518AA000" : [ ]
+        } ]
+      },
+      "patch" : {
+        "operationId" : "UpdateCustomer",
+        "parameters" : [ {
+          "name" : "customerId",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/UpdateCustomerV2"
+              }
+            }
+          },
+          "required" : true
+        },
+        "responses" : {
+          "400" : {
+            "description" : "400 response",
+            "content" : { }
+          },
+          "404" : {
+            "description" : "404 response",
+            "content" : { }
+          },
+          "200" : {
+            "description" : "200 response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Empty"
+                }
+              }
+            }
+          }
+        },
+        "security" : [ {
+          "TENANTSERVICEINTERNALUATtenantserviceinternalapirequestAuthorizer518AA000" : [ ]
+        } ]
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "CreateCustomerV2" : {
+        "title" : "CreateCustomerSchemaV2",
+        "required" : [ "customerId", "name", "status" ],
+        "type" : "object",
+        "properties" : {
+          "subDomainIdentifier" : {
+            "type" : "string"
+          },
+          "customerId" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ACTIVE", "DISABLED" ]
+          }
+        },
+        "additionalProperties" : true
+      },
+      "Empty" : {
+        "title" : "Empty Schema",
+        "type" : "object"
+      },
+      "UpdateCustomerV2" : {
+        "title" : "UpdateCustomerSchemaV2",
+        "minProperties" : 1,
+        "type" : "object",
+        "properties" : {
+          "subDomainIdentifier" : {
+            "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ACTIVE", "DISABLED" ]
+          }
+        },
+        "additionalProperties" : true
+      },
+      "UpdateServiceV2" : {
+        "title" : "UpdateServiceSchemaV2",
+        "minProperties" : 1,
+        "type" : "object",
+        "properties" : {
+          "isSecret" : {
+            "type" : "boolean"
+          },
+          "serviceName" : {
+            "type" : "string"
+          },
+          "value" : {
+            "oneOf" : [ {
+              "type" : "string"
+            }, {
+              "type" : "object"
+            }, {
+              "type" : "boolean"
+            }, {
+              "type" : "number"
+            }, {
+              "type" : "array"
+            } ]
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ACTIVE", "DISABLED" ]
+          }
+        },
+        "additionalProperties" : true
+      },
+      "CreateServiceV2" : {
+        "title" : "CreateServiceSchemaV2",
+        "required" : [ "isSecret", "serviceName", "status", "value" ],
+        "type" : "object",
+        "properties" : {
+          "isSecret" : {
+            "type" : "boolean"
+          },
+          "serviceName" : {
+            "type" : "string"
+          },
+          "value" : {
+            "oneOf" : [ {
+              "type" : "string"
+            }, {
+              "type" : "object"
+            }, {
+              "type" : "boolean"
+            }, {
+              "type" : "number"
+            }, {
+              "type" : "array"
+            } ]
+          },
+          "status" : {
+            "type" : "string",
+            "enum" : [ "ACTIVE", "DISABLED" ]
+          }
+        },
+        "additionalProperties" : true
+      },
+      "AuthenticateV2" : {
+        "title" : "AuthenticateSchemaV2",
+        "required" : [ "clientId", "clientSecret", "scopes" ],
+        "type" : "object",
+        "properties" : {
+          "clientId" : {
+            "type" : "string"
+          },
+          "clientSecret" : {
+            "type" : "string"
+          },
+          "scopes" : {
+            "type" : "string"
+          }
+        },
+        "additionalProperties" : false
+      }
+    },
+    "securitySchemes" : {
+      "TENANTSERVICEINTERNALUATtenantserviceinternalapirequestAuthorizer518AA000" : {
+        "type" : "apiKey",
+        "name" : "Authorization",
+        "in" : "header",
+        "x-amazon-apigateway-authtype" : "custom"
+      }
+    }
+  },
+  "x-amazon-apigateway-policy" : {
+    "Version" : "2012-10-17",
+    "Statement" : [ {
+      "Effect" : "Allow",
+      "Principal" : {
+        "AWS" : "*"
+      },
+      "Action" : "execute-api:Invoke",
+      "Resource" : "arn:aws:execute-api:us-east-1:189752218383:8s2x0k07gh/*/*/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:SourceVpce" : "vpce-0e955e7037803ef4b"
+        }
+      }
+    } ]
+  }
+}
