@@ -58,5 +58,4 @@ spec:
   lifecycle: production
   owner: architecture@example.com
   definition:
-    openapi: 3.0.0
     $text: ./api-spec.json
