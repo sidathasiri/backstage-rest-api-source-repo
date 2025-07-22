@@ -58,4 +58,4 @@ spec:
   lifecycle: production
   owner: architecture@example.com
   definition:
-    $json: ./api-spec.json
+    $text: ./api-spec.json
